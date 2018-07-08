@@ -1,0 +1,9 @@
+[Shell Help]
+
+  [Calls]
+
+	- shell - Spawns a bash shell
+
+  [Arguments]
+
+	- test - message before shell spawns

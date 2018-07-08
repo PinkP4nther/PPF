@@ -1,0 +1,7 @@
+MOD_NICKNAME PinkEnum
+
+MOD_DESC Pinky's common enumeration goto's wrapped into a module
+
+MOD_AUTHOR @Pink_P4nther <pinkp4nther@protonmail.com>
+
+MOD_SO_PATH modules/enumeration/pinkenum/pinkenum.so

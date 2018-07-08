@@ -1,0 +1,14 @@
+# Sets nickname of module
+MOD_NICKNAME Shell
+
+# Sets description of module
+MOD_DESC A basic module that drops the user into a bash shell
+
+# Sets author of module
+MOD_AUTHOR @Pink_Panther <pinkp4nther@protonmail.com>
+
+# Sets module SO file path
+MOD_SO_PATH modules/general/shell/shell.so
+
+#Sets module description path
+MOD_DESC_PATH modules/general/shell/shell.ppfdesc

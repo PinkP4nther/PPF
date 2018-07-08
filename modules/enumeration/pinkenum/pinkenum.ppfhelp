@@ -1,0 +1,9 @@
+[PinkEnum Help]
+
+  [Calls]
+
+  - pemain - starts pinky's enumeration scan
+
+  [Arguments]
+
+  - rhost - the target host
