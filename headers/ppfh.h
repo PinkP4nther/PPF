@@ -48,6 +48,8 @@ void cmdHandle(char *cmdStr);
 void ppfList(char *listCmd, char *base, char *type, char *name);
 /* Shows help for module or command */
 void ppfHelp(char *helpCmd, char *base, char *type, char *name);
+/* Compile modules with make */
+void ppfModMake(char *makeCmd, char *base, char *type, char *name);
 /* Reload modules */
 void ppfReload();
 /* Shows basic command help */

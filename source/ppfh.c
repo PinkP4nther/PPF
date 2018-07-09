@@ -314,6 +314,11 @@ void processArgs(char *cmd, char *args)
 		ppfModMenu(origin_cmd,base,type,name);
 		return;
 	}
+	else if (strcmp(cmd,"makemod") == 0)
+	{
+		ppfModMake(origin_cmd,base,type,name);
+		return;
+	}
 }
 
 /* Sync argument */
@@ -507,6 +512,24 @@ void ppfModMenu(char *modCmd, char *base, char *type, char *name)
 	}
 }
 
+/* Compile modules with make */
+void ppfModMake(char *makeCmd, char *base, char *type, char *name)
+{
+	if (strcmp(type,"all") == 0)
+	{
+		printf("%s[**] Compiling all modules%s\n",cyanstr,endcolor);
+		for (int i = 0; i < MODULES_FOUND; i++)
+		{
+			printf("%s[**] Compiling module: %s%s\n",cyanstr,minfo[i].mod_name,endcolor);
+			char mod_make_cmd[1000] = "make -C ";
+			strcat(mod_make_cmd,minfo[i].mod_dir);
+			system(mod_make_cmd);
+
+		}
+		printf("%s[**] All modules compiled%s\n",cyanstr,endcolor);
+	}
+}
+
 /* list info for modules and other things eventually */
 void ppfList(char *listCmd, char *base, char* type, char *name)
 {
@@ -592,6 +615,18 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 			"\n"
 			"  reload - reloads all modules\n"
 			"\nUsage: reload\n"
+			;
+			printf("%s%s%s",cyanstr,buf,endcolor);
+			return;
+		}
+		else if (strcmp(name,"makemod") == 0)
+		{
+			char buf[] =
+			"[MakeMod]\n"
+			"\n"
+			"Args:\n"
+			"  all - compiles all modules (don't need to specify name argument)\n"
+			"\nUsage: makemod <arg> <name>\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 			return;
@@ -738,6 +773,7 @@ void displayMainHelp()
 	"  + clear\n"
 	"  + list\n"
 	"  + reload\n"
+	"  + makemod\n"
 	"  + wield\n"
 	"  + exit\n"
 	"\n[**] Module Shell Commands\n"

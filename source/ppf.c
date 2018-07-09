@@ -34,9 +34,13 @@ int main()
 			{
 				processArgs("list",cmdStr);
 			}
-			else if (strcmp("reload",cmdStr) == 0)
+			else if (strncmp("reload",cmdStr,6) == 0)
 			{
 				ppfReload();
+			}
+			else if (strncmp("makemod",cmdStr,7) == 0)
+			{
+				processArgs("makemod",cmdStr);
 			}
 			else if (strncmp("clear",cmdStr,5) == 0)
 			{
