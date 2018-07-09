@@ -69,7 +69,7 @@ void parse_module_config(int mod)
 	{
 		fgets(fbuf, 100, fd);
 
-		if (fbuf[0] == '#' || strlen(fbuf) < 4)
+		if (fbuf[0] == '#' || strlen(fbuf) < 8)
 		{
 			continue;
 		}
