@@ -1,7 +1,9 @@
 #ifndef SHELL_H_
 #define SHELL_H_
 
-#include "../../../headers/ppfhmods.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /* Calls */
 void shell();
