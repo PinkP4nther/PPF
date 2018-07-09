@@ -75,7 +75,6 @@ char yellowstr[10];
 char cyanstr[10];
 char pinkstr[10];
 char endcolor[10];
-int mreloadFlag;
 /* Structs */
 struct mod_info
 {

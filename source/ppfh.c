@@ -2,13 +2,13 @@
 
 /* Variable value initializers */
 int MODULES_FOUND = 0;
-int mreloadFlag = 0;
 char mod_base_dir[10] = "modules";
 char redstr[10] = "\e[31m";
 char yellowstr[10] = "\e[33m";
 char cyanstr[10] = "\e[36m";
 char pinkstr[10] = "\e[35m";
 char endcolor[10] = "\e[0m";
+int mrf = 0;
 
 /* Send errors here */
 void ppferr(char *errmsg)
@@ -152,14 +152,7 @@ void type_enum(struct dirent *type_dir)
 		strcat(modso_buf,mod_ent->d_name);
 		strcat(modso_buf,".so");
 		strncpy(minfo[MODULES_FOUND].mod_so_path,modso_buf,MOD_SO_PATH);
-/*
-		char modd_buf[MOD_DESC_PATH];
-		strncpy(modd_buf,temp_path,MOD_DESC_PATH);
-		strcat(modd_buf,"/");
-		strcat(modd_buf,mod_ent->d_name);
-		strcat(modd_buf,".ppfdesc");
-		strncpy(minfo[MODULES_FOUND].mod_desc_path,modd_buf,MOD_DESC_PATH);
-*/
+
 		char modc_buf[MOD_CONF_SIZE];
 		strncpy(modc_buf,temp_path,MOD_CONF_SIZE);
 		strcat(modc_buf,"/");
@@ -169,26 +162,8 @@ void type_enum(struct dirent *type_dir)
 
 		/* Put file reading stuff after this? */
 		parse_module_config(MODULES_FOUND);
-/*
-		int oFD;
-		ssize_t br;
-		if ((oFD = open(minfo[MODULES_FOUND].mod_desc_path,O_RDONLY)) == -1)
-		{
-			printf("%s[!] Couldn't open description file %s%s\n",yellowstr,minfo[MODULES_FOUND].mod_desc_path,endcolor);
-			MODULES_FOUND++;
-			continue;
-		}
-		if ((br = read(oFD,minfo[MODULES_FOUND].mod_desc,MOD_DESC_SIZE)) == -1)
-		{
-			printf("%s[!] Couldn't read description file %s%s\n",yellowstr,minfo[MODULES_FOUND].mod_desc_path,endcolor);
-			MODULES_FOUND++;
-			continue;
-		}
-		if (close(oFD) == -1)
-		{
-			printf("%s[!] Couldn't close file %s from module %s%s\n",yellowstr,minfo[MODULES_FOUND].mod_desc_path,minfo[MODULES_FOUND].mod_name,endcolor);
-		}
-*/
+		if (mrf == 1)
+			printf("%s[**] Reloaded module: %s%s\n",cyanstr,minfo[MODULES_FOUND].mod_name,endcolor);
 
 		MODULES_FOUND++;
 
@@ -230,9 +205,6 @@ void loadMods()
 
 	enum_mods();
 
-	/* Eventually when ppf config is made add option for loading module SO's on load
-	* or when they are ran then unload them after execution (will save memory)
-	*/
 	/**
 	for (int i = 0; i < MODULES_FOUND; i++)
 	{
@@ -758,9 +730,10 @@ void ppfReload()
 	free(minfo);
 	minfo = NULL;
 	MODULES_FOUND = 0;
-	mreloadFlag = 1;
+	mrf = 1;
     loadMods();
 	printf("%s[**] Loaded %d modules%s\n",cyanstr,MODULES_FOUND,endcolor);
+	mrf = 0;
 }
 
 /* Displays main help */
