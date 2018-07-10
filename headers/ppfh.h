@@ -76,6 +76,7 @@ char cyanstr[10];
 char pinkstr[10];
 char endcolor[10];
 int mrf;
+
 /* Structs */
 struct mod_info
 {

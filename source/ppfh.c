@@ -246,7 +246,6 @@ void cmdHandle(char *cmdStr)
 		}
 	}
 	ppfwarn("Not a command. Use 'help' for commands.");
-
 }
 
 /* Process command args */
@@ -500,6 +499,28 @@ void ppfModMake(char *makeCmd, char *base, char *type, char *name)
 		}
 		printf("%s[**] All modules compiled%s\n",cyanstr,endcolor);
 	}
+	else if (strcmp(type,"module") == 0)
+	{
+		for (int i = 0; i < MODULES_FOUND; i++)
+		{
+			if (strcmp(name,minfo[i].mod_name) == 0)
+			{
+				printf("%s[**] Compiling module: %s%s\n",cyanstr,minfo[i].mod_name,endcolor);
+				char mod_make_cmd[1000] = "make -C ";
+				strcat(mod_make_cmd,minfo[i].mod_dir);
+				system(mod_make_cmd);
+				printf("%s[**] Compiled module: %s%s\n",cyanstr,minfo[i].mod_name,endcolor);
+				return;
+			}
+		}
+		printf("%s[!] Couldn't find module: %s%s\n",yellowstr,name,endcolor);
+		return;
+	}
+	else
+	{
+		printf("%s[!] Invalid argument: %s%s\n",yellowstr,type,endcolor);
+		printf("%s[!] Use 'help usage makemod' for help%s\n",yellowstr,endcolor);
+	}
 }
 
 /* list info for modules and other things eventually */
@@ -598,6 +619,7 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 			"\n"
 			"Args:\n"
 			"  all - compiles all modules (don't need to specify name argument)\n"
+			"  module - compiles a specific module\n"
 			"\nUsage: makemod <arg> <name>\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
