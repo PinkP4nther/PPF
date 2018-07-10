@@ -53,7 +53,14 @@ int main()
 			}
 			else
 			{
-				cmdHandle(cmdStr);
+				if (strcmp(cmdStr,"") == 0)
+				{
+					continue;
+				}
+				else
+				{
+					cmdHandle(cmdStr);
+				}
 			}
 		}
 	}
