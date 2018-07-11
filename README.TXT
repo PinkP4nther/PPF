@@ -1,2 +1,7 @@
-PPF
-A modular pentesting framework
+[Pinky's Pentest Framework]
+
+[Install]
+cd PPF && make
+
+[Run]
+./ppf

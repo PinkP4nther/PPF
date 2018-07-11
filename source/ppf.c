@@ -1,4 +1,4 @@
-/* PPF */
+/* PPF main */
 
 #include "../headers/ppfh.h"
 
