@@ -120,13 +120,12 @@ void type_enum(struct dirent *type_dir)
 
 		/* Put file reading stuff after this? */
 		parse_module_config(MODULES_FOUND);
+
 		if (mrf == 1)
 			printf("%s[**] Reloaded module: %s%s\n",cyanstr,minfo[MODULES_FOUND].mod_name,endcolor);
 
 		MODULES_FOUND++;
-
 	}
-	
 }
 
 /* Enumerate modules */
@@ -151,13 +150,11 @@ void enum_mods()
 		type_enum(dp);
 	}
 	closedir(dirp);
-	
 }
 
 /* Load modules */
 void loadMods()
 {
-
 	minfo = (struct mod_info*)malloc(MOD_STRUCT_COUNT * sizeof(*minfo));
 	*minfo = (struct mod_info){0};
 

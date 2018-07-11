@@ -323,7 +323,6 @@ void ppfModMake(char *makeCmd, char *base, char *type, char *name)
 			char mod_make_cmd[1000] = "make -C ";
 			strcat(mod_make_cmd,minfo[i].mod_dir);
 			system(mod_make_cmd);
-
 		}
 		printf("%s[**] All modules compiled%s\n",cyanstr,endcolor);
 	}

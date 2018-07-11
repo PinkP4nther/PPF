@@ -15,7 +15,6 @@
 #define MOD_HELP_SIZE 10000
 #define MOD_HFIL_SIZE 100
 #define MOD_SO_PATH 100
-#define MOD_DESC_PATH 100
 #define MOD_AUTHOR_SIZE 100
 
 /* Includes */
@@ -89,7 +88,6 @@ struct mod_info
     char mod_nick[MOD_NICK_SIZE];
     char mod_h_file[MOD_HFIL_SIZE];
     char mod_so_path[MOD_SO_PATH];
-    char mod_desc_path[MOD_DESC_PATH];
     char mod_desc[MOD_DESC_SIZE];
     char mod_help[MOD_HELP_SIZE];
     char mod_zero;

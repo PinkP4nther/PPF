@@ -5,3 +5,6 @@ cd PPF && make
 
 [Run]
 ./ppf
+
+[Compile Modules]
+[*][PPF]> modmake all
