@@ -14,16 +14,18 @@ void cmdHandle(char *cmdStr)
 		/* Implement quick access here auto loads then resolves symbols and executes then
 		* unloads */
 		/* Find way to make module menu with args and a run command that executes (using dlsym to look for global variables and call names) */
-		//minfo[i].modSOhandle = dlopen(minfo[i].mod_so_path, RTLD_LAZY);
+		minfo[i].modSOhandle = dlopen(minfo[i].mod_so_path, RTLD_LAZY);
 		if ((*(void**)(&cmdPointer) = dlsym(minfo[i].modSOhandle,cmdStr)) == NULL)
 		{
-			//dlclose(minfo[i].modSOhandle);
+			dlclose(minfo[i].modSOhandle);
+            minfo[i].modSOhandle = NULL;
 			continue;
 		}
 		else
 		{
 			(*cmdPointer)();
-			//dlclose(minfo[i].modSOhandle);
+			dlclose(minfo[i].modSOhandle);
+            minfo[i].modSOhandle = NULL;
 			break;
 		}
 	}

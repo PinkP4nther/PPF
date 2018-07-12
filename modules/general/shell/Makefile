@@ -11,6 +11,7 @@ all: $(TARGET)
 $(TARGET): $(OBJFILES)
 	$(CC) $(CFLAGS) $(SRCFILES)
 	$(CC) $(LDFLAGS) -o $(SONAME) $(OBJFILES)
+	rm -rf $(OBJFILES)
 
 clean:
-	rm -rf $(OBJFILES)
+	rm -rf $(SONAME)
