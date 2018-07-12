@@ -200,6 +200,7 @@ void ppfModMenu(char *modCmd, char *base, char *type, char *name)
 					if (strncmp(mCmd,"retreat",7) == 0)
 					{
 						dlclose(minfo[i].modSOhandle);
+                        minfo[i].modSOhandle = NULL;
 						return;
 					}
 					else if (strncmp(mCmd,"sync",4) == 0)
