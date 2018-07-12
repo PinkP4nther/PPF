@@ -1,7 +1,7 @@
 CC		= gcc
 CFLAGS		= -Wall -g
 LDFLAGS		= -ldl
-OBJFILES	= source/ppfModLoad.o source/ppfh.o source/ppf.o
+OBJFILES	= source/ppfCmdParse.o source/ppfModLoad.o source/ppfh.o source/ppf.o
 TARGET		= ppf
 
 all: $(TARGET)

@@ -7,3 +7,5 @@
   [Arguments]
 
   - rhost - the target host
+  - ofile - out file path/name
+  - ports - ports to scan
