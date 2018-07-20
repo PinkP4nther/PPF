@@ -26,7 +26,7 @@ int main()
 			{
 				processArgs("help",cmdStr);
 			}
-			else if (strncmp(cmdStr,"wield",5) == 0)
+			else if ((strncmp(cmdStr,"wield",5) == 0) || (strncmp(cmdStr,"use",3) == 0))
 			{
 				processArgs("wield",cmdStr);
 			}

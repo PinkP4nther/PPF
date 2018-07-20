@@ -7,15 +7,16 @@
 /* Command Parsing */
 void cmdHandle(char *cmdStr)
 {
-	void (*cmdPointer)(void);
+	//void (*cmdPointer)(void);
 	/* Iterate through modules and attempt to resolve command */
 	for (int i = 0; i < MODULES_FOUND; i++)
 	{
 		/* Implement quick access here auto loads then resolves symbols and executes then
 		* unloads */
 		/* Find way to make module menu with args and a run command that executes (using dlsym to look for global variables and call names) */
-		minfo[i].modSOhandle = dlopen(minfo[i].mod_so_path, RTLD_LAZY);
-		if ((*(void**)(&cmdPointer) = dlsym(minfo[i].modSOhandle,cmdStr)) == NULL)
+		//minfo[i].modSOhandle = NULL;
+		//minfo[i].modSOhandle = dlopen(minfo[i].mod_so_path, RTLD_LAZY);
+		/*if ((*(void**)(&cmdPointer) = dlsym(minfo[i].modSOhandle,cmdStr)) == NULL)
 		{
 			dlclose(minfo[i].modSOhandle);
             minfo[i].modSOhandle = NULL;
@@ -27,7 +28,7 @@ void cmdHandle(char *cmdStr)
 			dlclose(minfo[i].modSOhandle);
             minfo[i].modSOhandle = NULL;
 			break;
-		}
+		}*/
 	}
 	ppfwarn("Not a command. Use 'help' for commands.");
 }
@@ -441,9 +442,22 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 			"\n"
 			"[Modes]\n"
 			"  ~ wield - Loads a module.\n"
-			"\nUsage: wield <module>\n"
+			"\n[Usage: wield <module>]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
+			return;
+		}
+		else if (strcmp(name,"use") == 0)
+		{
+			char buf[] =
+			"[[Use]]\n"
+			"\n"
+			"[Modes]\n"
+			"  ~ use - An alias command for wield.\n"
+			"\n[Usage: use <module>]\n"
+			;
+			printf("%s%s%s",cyanstr,buf,endcolor);
+			return;
 		}
 		else if (strcmp(name,"sync") == 0)
 		{
@@ -455,6 +469,7 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 			"\n[Usage: sync <arg> <value>]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
+			return;
 		}
 		else if (strcmp(name,"retreat") == 0)
 		{
@@ -466,6 +481,7 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 			"\n[Usage: retreat]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
+			return;
 		}
 		else if (strcmp(name,"run") == 0)
 		{
@@ -477,6 +493,7 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 			"\n[Usage: run <call>]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
+			return;
 		}
 		else if (strcmp(name,"exit") == 0)
 		{

@@ -62,6 +62,7 @@ void displayMainHelp()
 	"  {*} reload\n"
 	"  {*} makemod\n"
 	"  {*} wield\n"
+	"  {*} use\n"
 	"  {*} exit\n"
 	"\n[**] [Module Shell Commands]\n"
 	"  {*} sync\n"
