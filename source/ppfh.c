@@ -54,20 +54,20 @@ void ppfBanner()
 void displayMainHelp()
 {
 	char helpbuf[] = 
-	"[**] PPF Shell Commands\n"
-	"  + help\n"
-	"  + banner\n"
-	"  + clear\n"
-	"  + list\n"
-	"  + reload\n"
-	"  + makemod\n"
-	"  + wield\n"
-	"  + exit\n"
-	"\n[**] Module Shell Commands\n"
-	"  + sync\n"
-	"  + retreat\n"
-	"  + run\n"
-	"\nFor command usage use: 'help usage <command>'\n"
+	"[**] [PPF Shell Commands]\n"
+	"  {*} help\n"
+	"  {*} banner\n"
+	"  {*} clear\n"
+	"  {*} list\n"
+	"  {*} reload\n"
+	"  {*} makemod\n"
+	"  {*} wield\n"
+	"  {*} exit\n"
+	"\n[**] [Module Shell Commands]\n"
+	"  {*} sync\n"
+	"  {*} retreat\n"
+	"  {*} run\n"
+	"\n[For command usage use: 'help usage <command>']\n"
 	;
 	printf("%s%s%s",cyanstr,helpbuf,endcolor);
 }

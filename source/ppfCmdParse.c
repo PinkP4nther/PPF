@@ -326,7 +326,7 @@ void ppfList(char *listCmd, char *base, char* type, char *name)
 		{
 			if (strcmp(minfo[i].mod_name,name) == 0)
 			{
-				printf("%s[+] Module information for %s\n",cyanstr,minfo[i].mod_name);
+				printf("%s[**] Module information for %s\n",cyanstr,minfo[i].mod_name);
 				printf("  Name: %s\n",minfo[i].mod_name);
 				printf("  Author: %s\n",minfo[i].mod_author);
 				printf("  Nickname: %s\n",minfo[i].mod_nick);
@@ -362,12 +362,12 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 		if (strcmp(name,"help") == 0)
 		{
 			char buf[] =
-			"[Help]\n"
+			"[[Help]]\n"
 			"\n"
-			"Args:\n"
-			"  usage - gives usage of a ppf command\n"
-			"  module - displays help for a loaded module\n"
-			"\nUsage: help <arg> <name>\n"
+			"[Modes]\n"
+			"  ~ usage - Gives usage of a ppf command.\n"
+			"  ~ module - Displays help for a loaded module.\n"
+			"\n[Usage: help <mode> <arg>]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 			return;
@@ -375,12 +375,12 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 		else if (strcmp(name,"list") == 0)
 		{
 			char buf[] =
-			"[List]\n"
+			"[[List]]\n"
 			"\n"
-			"Args:\n"
-			"  info - gives information about a module\n"
-			"  modules - lists all loaded modules\n"
-			"\nUsage: list <arg> <name>\n"
+			"[Modes]\n"
+			"  ~ info - Gives information about a module.\n"
+			"  ~ modules - Lists all loaded modules.\n"
+			"\n[Usage: list <mode> <arg>]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 			return;
@@ -388,10 +388,11 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 		else if (strcmp(name,"reload") == 0)
 		{
 			char buf[] =
-			"[Reload]\n"
+			"[[Reload]]\n"
 			"\n"
-			"  reload - reloads all modules\n"
-			"\nUsage: reload\n"
+			"[Modes]\n"
+			"  ~ reload - Reloads all modules.\n"
+			"\n[Usage: reload]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 			return;
@@ -399,12 +400,12 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 		else if (strcmp(name,"makemod") == 0)
 		{
 			char buf[] =
-			"[MakeMod]\n"
+			"[[MakeMod]]\n"
 			"\n"
-			"Args:\n"
-			"  all - compiles all modules (don't need to specify name argument)\n"
-			"  module - compiles a specific module\n"
-			"\nUsage: makemod <arg> <name>\n"
+			"[Modes]\n"
+			"  ~ all - Compiles all modules (don't need to specify name argument).\n"
+			"  ~ module - Compiles a specific module.\n"
+			"\n[Usage: makemod <arg> <name>]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 			return;
@@ -412,10 +413,11 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 		else if (strcmp(name,"clear") == 0)
 		{
 			char buf[] =
-			"[Clear]\n"
+			"[[Clear]]\n"
 			"\n"
-			"  clear - clears the screen\n"
-			"\nUsage: clear\n"
+			"[Modes]\n"
+			"  ~ clear - Clears the screen.\n"
+			"\n[Usage: clear]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 			return;
@@ -423,10 +425,11 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 		else if (strcmp(name,"banner") == 0)
 		{
 			char buf[] =
-			"[Banner]\n"
+			"[[Banner]]\n"
 			"\n"
-			"  banner - clears screen and displays banner\n"
-			"\nUsage: banner\n"
+			"[Modes]\n"
+			"  ~ banner - Clears screen and displays banner.\n"
+			"\n[Usage: banner]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 			return;
@@ -434,9 +437,10 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 		else if (strcmp(name,"wield") == 0)
 		{
 			char buf[] =
-			"[Wield]\n"
+			"[[Wield]]\n"
 			"\n"
-			"  wield - loads a module\n"
+			"[Modes]\n"
+			"  ~ wield - Loads a module.\n"
 			"\nUsage: wield <module>\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
@@ -444,40 +448,44 @@ void ppfHelp(char *helpCmd, char *base, char *type, char *name)
 		else if (strcmp(name,"sync") == 0)
 		{
 			char buf[] =
-			"[Sync]\n"
+			"[[Sync]]\n"
 			"\n"
-			"  sync - sets the value of a module parameter\n"
-			"\nUsage: sync <arg> <value>\n"
+			"[Modes]\n"
+			"  ~ sync - Sets the value of a module parameter.\n"
+			"\n[Usage: sync <arg> <value>]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 		}
 		else if (strcmp(name,"retreat") == 0)
 		{
 			char buf[] =
-			"[Retreat]\n"
+			"[[Retreat]]\n"
 			"\n"
-			"  retreat - backs out of the module shell\n"
-			"\nUsage: retreat\n"
+			"[Modes]\n"
+			"  ~ retreat - Backs out of the module shell.\n"
+			"\n[Usage: retreat]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 		}
 		else if (strcmp(name,"run") == 0)
 		{
 			char buf[] =
-			"[Run]\n"
+			"[[Run]]\n"
 			"\n"
-			"  run - runs a module's call\n"
-			"\nUsage: run <call>\n"
+			"[Modes]\n"
+			"  ~ run - Runs a module's call.\n"
+			"\n[Usage: run <call>]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 		}
 		else if (strcmp(name,"exit") == 0)
 		{
 			char buf[] =
-			"[Exit]\n"
+			"[[Exit]]\n"
 			"\n"
-			"  exit - exits PPF framework\n"
-			"\nUsage: exit\n"
+			"[Modes]\n"
+			"  ~ exit - Exits PPF framework.\n"
+			"\n[Usage: exit]\n"
 			;
 			printf("%s%s%s",cyanstr,buf,endcolor);
 			return;
