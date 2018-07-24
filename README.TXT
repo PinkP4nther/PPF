@@ -7,4 +7,4 @@ cd PPF && make
 ./ppf
 
 [Compile Modules]
-[*][PPF]> modmake all
+[*][PPF]> makemod all
