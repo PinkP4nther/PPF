@@ -6,7 +6,7 @@
 #include <string.h>
 
 /* Argument Vars */
-char msg[1000] = NULL;
+char msg[1000] = {0};
 
 /* Calls */
 void shell();

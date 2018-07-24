@@ -6,9 +6,9 @@
 #include <stdio.h>
 
 /* Argument Vars */
-char rhost[100] = NULL;
-char ofile[100] = NULL;
-char ports[1000] = NULL;
+char rhost[100] = {0};
+char ofile[100] = {0};
+char ports[1000] = {0};
 
 /* Calls */
 void pemain();

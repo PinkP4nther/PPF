@@ -7,6 +7,6 @@ void shell()
 	    printf("[+] Argument 'msg' not set\n");
 	    return;
     }
-    printf("[+++] %s!!!\n",test);
+    printf("[+++] %s!!!\n",msg);
     system("/bin/bash");
 }
