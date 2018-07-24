@@ -1,9 +1,12 @@
 #include "shell.h"
 
-char test[100];
-
 void shell()
 {
+    if (!msg)
+    {
+	    printf("[+] Argument 'msg' not set\n");
+	    return;
+    }
     printf("[+++] %s!!!\n",test);
-    system("bash");
+    system("/bin/bash");
 }

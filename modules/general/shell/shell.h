@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <string.h>
 
+/* Argument Vars */
+char msg[1000] = NULL;
+
 /* Calls */
 void shell();
 
