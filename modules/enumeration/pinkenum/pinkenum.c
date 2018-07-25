@@ -2,26 +2,6 @@
 
 void pemain()
 {
-    /* Nmap
-     * Directory brute
-     * Other enum
-     * All into one file?
-     */
-    if (!ports)
-    {
-	    printf("[+] Argument 'ports' not set\n");
-	    return;
-    }
-    if (!ofile)
-    {
-	    printf("[+] Argument 'ofile' not set\n");
-	    return;
-    }
-    if (!rhost)
-    {
-	    printf("[+] Argument 'rhost' not set\n");
-	    return;
-    }
     char nmapCmd[100] = "nmap -sC -A -p";
     strcat(nmapCmd,ports);
     strcat(nmapCmd," ");
