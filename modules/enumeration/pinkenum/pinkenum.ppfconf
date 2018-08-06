@@ -1,3 +1,5 @@
+# Example test module
+
 MOD_NICKNAME PinkEnum
 
 MOD_DESC Pinky's common enumeration goto's wrapped into a module
